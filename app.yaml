@@ -1,0 +1,24 @@
+application: braatpaq
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+
+handlers:
+- url: /stylesheets     # these two lines displays the stylesheets,
+  static_dir: static/    # scripts & images in the static folder
+
+- url: /images
+  static_dir: static/images
+
+#- url: /(.*\.(gif|png|jpg))
+#  static_files: static/\1
+#  upload: static/(.*\.(gif|png|jpg))
+
+- url: /.*
+  script: main.app
+
+libraries:
+- name: django
+  version: "1.2"
